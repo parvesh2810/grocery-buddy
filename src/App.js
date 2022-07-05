@@ -70,6 +70,7 @@ function App() {
     });
     if (newList.length === 0) setLists([]);
     setLists(newList);
+    alertItem("danger", "Item deleted from the list");
   };
 
   const editItem = (id, title) => {
@@ -81,7 +82,6 @@ function App() {
   const moveItem = (currIndex, toMoveIndex) => {
     // console.log(toMoveIndex);
     const modifiedList = [...lists];
-    // const modifiedList = lists.slice(0, lists.length);
     if (toMoveIndex === -1) {
       modifiedList.splice(
         lists.length,
@@ -99,7 +99,7 @@ function App() {
 
   const resetAll = () => {
     setLists([]);
-    alertItem("danger", "Item already added to the list");
+    alertItem("danger", "Item cleared from the list");
   };
 
   const alertItem = (type, message, show = true) => {
